@@ -1,5 +1,5 @@
 import json
-from framework.UIBase import UIBase
+from framework.UIbase import UIBase
 from selenium.webdriver.common.by import By
 
 class Login(UIBase):
@@ -48,6 +48,13 @@ class Login(UIBase):
             return False
 
     def enter_invalid_credentails(self, username, password):
+        """
+        validating invalid login scenario
+
+        :Args:
+         - username - username
+         - password - password
+        """
         self.enter_text(self.username_txt,username)
         self.enter_text(self.password_txt,password)
         self.click(self.login_btn)
