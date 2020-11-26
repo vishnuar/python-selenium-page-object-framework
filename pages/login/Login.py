@@ -27,7 +27,7 @@ class Login(UIBase):
         Validating login page h1 text
         """
 
-        return self.assert_element_text(self.h1_tag, "User Login")
+        return self.assert_element_text(self.h1_tag, " User Login ")
 
 
     def enter_valid_credentails(self, username, password):
