@@ -26,7 +26,7 @@ class UIBase():
          - element_text - compare text
         """
         web_element=WebDriverWait(self.driver, 10).until(EC.visibility_of_element_located(by_locator))
-        return bool (web_element.get_attribute('value') == element_text)
+        return bool (web_element.get_attribute('textContent') == element_text)
 
     def enter_text(self, by_locator, text):
         """

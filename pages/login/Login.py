@@ -5,8 +5,8 @@ from selenium.webdriver.common.by import By
 class Login(UIBase):
     
     #---- Report Home Page Locators ----#
-    username_txt = (By.ID, "pat-code")
-    password_txt = (By.ID, "pat-last-name")
+    username_txt = (By.ID, "username")
+    password_txt = (By.ID, "password")
     login_btn = (By.ID, "loginbtn")
     h1_tag = (By.XPATH, "/html/body/div[1]/h1")
 
