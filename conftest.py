@@ -29,5 +29,5 @@ def driver():
     driver.quit()
 
 @pytest.fixture()
-def envurl(pytestconfig):
+def url(pytestconfig):
     return pytestconfig.getoption("url")
