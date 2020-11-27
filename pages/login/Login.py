@@ -1,4 +1,3 @@
-import json
 from framework.UIbase import UIBase
 from selenium.webdriver.common.by import By
 
