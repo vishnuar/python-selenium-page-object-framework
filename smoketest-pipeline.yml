@@ -1,0 +1,41 @@
+# Python package
+# Create and test a Python package on multiple Python versions.
+# Add steps that analyze code, save the dist with the build record, publish to a PyPI-compatible index, and more:
+# https://docs.microsoft.com/azure/devops/pipelines/languages/python
+
+variables:
+  rootDirPrefix: 'python-selenium-automation-framework'
+  envURL: 'https://vishnuar.pythonanywhere.com/'
+
+trigger:
+  branches:
+    include:
+    - '*'
+  paths:
+    include:
+    - 'python-selenium-automation-framework/*'
+
+pool:
+  vmImage: 'ubuntu-latest'
+strategy:
+  matrix:
+    Python37:
+      python.version: '3.7'
+
+steps:
+- task: UsePythonVersion@0
+  inputs:
+    versionSpec: '$(python.version)'
+  displayName: 'Use Python $(python.version)'
+
+- script: |
+    python -m pip install --upgrade pip
+    pip install pytest
+    pip install selenium
+    pip install Faker
+    pip install pytest pytest-azurepipelines
+  displayName: 'Install dependencies'
+
+- script: |
+    pytest -vv -ss --url $(envURL)
+  displayName: 'pytest'
