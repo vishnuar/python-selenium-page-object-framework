@@ -4,7 +4,7 @@ from selenium.webdriver.common.by import By
 
 class Registration(UIBase):
     
-    #---- Registration Home Page Locators ----#
+    #---- Registration Page Locators ----#
     firstname_txt = (By.ID, "first_name")
     lastname_txt = (By.ID, "last_name")
     username_txt = (By.ID, "username")
