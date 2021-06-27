@@ -3,8 +3,8 @@ from selenium.webdriver.common.by import By
 
 class Login(UIBase):
     
-    #---- Login Page Locators ----#
-    username_txt = (By.ID, "username")
+    #---- Login Page Locators ------#
+    username_txt = (By.ID, "username-id")
     password_txt = (By.ID, "password")
     login_btn = (By.ID, "loginbtn")
     h1_tag = (By.XPATH, "/html/body/div[1]/h1")
