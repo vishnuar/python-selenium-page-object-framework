@@ -1,8 +1,9 @@
 import pytest
 import os
 from selenium import webdriver
-from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.common.keys import Keys
+from selenium.webdriver.chrome.options import Options
+from webdriver_manager.chrome import ChromeDriverManager
 
 def pytest_addoption(parser):
     parser.addoption("--url", action="store", help="Please enter application url")
@@ -10,6 +11,11 @@ def pytest_addoption(parser):
 @pytest.fixture
 def driver():
 
+    # Installing chrome driver
+    driver_location = './helpers/chromedriver/chromedriver'
+    driver = webdriver.Chrome(ChromeDriverManager(path=driver_location).install())
+
+    
     # Initialize ChromeDriver
     chrome_options = Options()
     chrome_options.add_argument('--headless')
