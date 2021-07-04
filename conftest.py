@@ -12,18 +12,16 @@ def pytest_addoption(parser):
 def driver():
 
     # Installing chrome driver
-    driver_location = './helpers/chromedriver/chromedriver'
-    driver = webdriver.Chrome(ChromeDriverManager(path=driver_location).install())
+    driver_path = ChromeDriverManager().install()
 
-    
     # Initialize ChromeDriver
     chrome_options = Options()
     chrome_options.add_argument('--headless')
     chrome_options.add_argument('--no-sandbox')
     chrome_options.add_argument('--disable-dev-shm-usage')
     driver_location = './helpers/chromedriver/chromedriver'
-    os.chmod(driver_location, 0o775)
-    driver = webdriver.Chrome(driver_location,options=chrome_options)
+    os.chmod(driver_path, 0o775)
+    driver = webdriver.Chrome(driver_path,options=chrome_options)
     
     # Wait implicitly for elements to be ready before attempting interactions
     driver.implicitly_wait(10)
